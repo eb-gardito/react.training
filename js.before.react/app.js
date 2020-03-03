@@ -1,19 +1,35 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./styles.css";
+
+class Developer {
+  constructor(firstname, lastname) {
+    this.firstname = firstname;
+    this.lastname = lastname;
+  }
+  getName() {
+    return this.firstname + " " + this.lastname;
+  }
+}
+
+class ReactDeveloper extends Developer {
+  getJob() {
+    return "React Developer";
+  }
+}
+
 class App extends Component {
+  getGreeting() {
+    return "Welcome to React";
+  }
+
   render() {
+    var me = new ReactDeveloper("Robin", "Wieruch");
+    console.log(me.getName());
+    console.log(me.getJob());
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1>
-            Hello React
-          </h1>
-          <a href="https://reactjs.org">
-            Learn React
-          </a>
-        </header>
+      <div>
+        <h1>{this.getGreeting()}</h1>
       </div>
     );
   }
